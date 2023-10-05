@@ -1,0 +1,86 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2706
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;\red29\green184\blue14;
+\red69\green60\blue204;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c100000\c100000\c100000;\cssrgb\c7059\c75294\c5490;
+\cssrgb\c34510\c33725\c83922;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Medium Kahuna\
+Wired Remote Volume Encoder\
+10/2/23, Ver 1, Jud\
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb3 \expnd0\expndtw0\kerning0
+\
+We\'92re pretty much set on \
+Arduino ESP32 Nano\
+Which has an onboard switching power supply\
+Which we will use if we don\'92t find bad radio interference \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \expnd0\expndtw0\kerning0
+I think the power supply spec so far is:\
+\pard\pardeftab720\partightenfactor0
+\cf2 Ground (V0) is shared with all other ports.\
+Automotive 12V supply, Complies with the spirt if not the letter of automotive standards.\
+Doesn\'92t inject noise in the radio\
+1 amp input, 9 volts minimum\
+Won\'92t overheat in confined space.\
+Two spade lug like Vin connectors\
+No 12v power, option for USB host powered applications.\
+\pard\pardeftab720\partightenfactor0
+\cf2 Can be powered from USB\
+Unit can be replaced without soldering or crimping (must have connector, could be inline, replaceable inline fuse meets absolute rock bottom.\
+Things not mentioned (like USB charging) or sufficiently constrained above are still up for grabs\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\
+\cb1 I think we should not neglect the development use of this board. I think we should support people that want to make their own product and/or start their own competing business. However, we will also strive for a level playing field and make as much, would be, proprietary knowledge into public domain as possible. And we support our community to make our open version damn good.\
+Along the the lines of supporting developers, this thing should be able to snoop all the characteristics of any of these "Wired Remote\'94 variations' transmitter or receiver. You said you wanted to know if Pioneer\'92s pull up was 62.5k? Well this thing should be able to tell you and, also, be able to emulate it in a jiff. We need to boil the variations down to a set of parameters (I think a pseudo circuit). We give rebaits for sending us unique data (must include model, serial).\
+\
+\
+Is a box (roughly  3\'94  x 4\'94 x 1\'94 see dimension detail below) with 4 ports, discrete power and ground wires.\
+\
+W/R A port\
+This is an output, intended to be a car stereo input.\
+This output provides TWO channels of \'93button resistor array\'94 emulation according to de facto wired remote control standard (described below). Probably find that a 3 foot cable emanating from box with 1/8\'94 stereo headphone plug on end,\
+\
+W/R B port\
+This is an input, intended to connect to two channels from a \'93button resistor array one wire remote\'94 according to the de facto standard and variations (described below).\
+The W/R A port output can be connected to this port for calibration and test. \
+Probably want 1/8\'94 stereo headphone jack in box surface or 6\'94 cable with jack.\
+\
+Rotary Encoder port\
+This is an input (with power output) for a typical panel mount (human interface) 5V rotary encoder with a switch that closes to ground when you push in on the knob. So, Ground, CHA, CHB, SW, +5V signals\
+Suspect cable soldered to encoder with plug or pigtail other end. Need to pick jack for box surface or screw terminals or classic 1/10th pin/socket or?\
+\
+USB programming port\
+No connection required for normal operation, Secondary user interface, programing, dats etc, slave/device connect (so PI can control stereo, read buttons etc).\
+Unit can be/is powered by this port.\
+Probably want USB port on MCU to poke through box surface.\
+\
+Power supply\
+Ground (V0) is shared with all other ports.\
+Automotive 12V supply, Complies with the spirt if not the letter of automotive standards.\
+Doesn\'92t inject noise in the radio\
+1 watt (200ma at 5V)\
+Won\'92t overheat in confined space.\
+Could be two 16/18 gauge wires emanating from box, screw terminals, 1/10th inch pins, barrel jack\
+No 12v power option for USB host powered applications.\
+\
+Box\
+Box is meant to mount behind a typical car stereo head unit. So the maximum dimensions of the box must not be greater than the cross section of the stereo (about 7\'94 X 3\'94 but need to get specs) but less that 3\'94 X 4\'94 won\'92t be much benefit. I\'92m guessing that it shouldn\'92t be more than 1\'94 thick but less than 3/4\'94 wouldn\'92t be much benefit.\
+\
+Features\
+Control volume with a knob alongside or not \'93button resistor array\'94 input.\
+Pass through \'93button resistor array\'94 while translating between standards with or without encoder.\
+Control stereo from USB host.\
+Input stray \'93button resistor array\'94 to USB host.\
+Collect and trade data with your friends, Capture the specs on any \'93button resistor array\'94\
+Supports customization.\
+Open hardware and software Join community\
+Good start for developing your own product.\
+Learn embedded control and have fun\cf4 \
+}
