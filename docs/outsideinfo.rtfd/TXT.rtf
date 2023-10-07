@@ -92,8 +92,10 @@ https://www.fordfusionclub.com/threads/wiring-diagram-for-2010-steering-wheel-co
 \
 \pard\pardeftab720\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://source.android.com/docs/core/interaction/accessories/headset/plug-headset-spec"}}{\fldrslt \cf3 \expnd0\expndtw0\kerning0
-\ul \ulc3 https://source.android.com/docs/core/interaction/accessories/headset/plug-headset-spec}}\expnd0\expndtw0\kerning0
+\ul \ulc3 https://source.android.com/docs/core/interaction/accessories/headset/plug-headset-spec}}\cf3 \expnd0\expndtw0\kerning0
+\ul \ulc3 \
 \
+https://source.android.com/docs/core/interaction/accessories/headset/plug-headset-spec\cf0 \ulnone \
 \
 Bob\
 \
@@ -110,7 +112,13 @@ How the button data is actually sent \
 \cf0 Let's tackle the first one, the pinout. There are two standards, one let's call "US" or "Standard" mode, and the other called OMTP, or "China" mode. US mode has the ground signal on the second ring and mic on the sleeve. China mode has the two reversed. Any well-designed modern 4-pin headphone jack audio codec should be able to detect the orientation of mic/ground and automatically switch the two pins to the codec appropriately. An iPhone can accept and function properly both US and China headsets just fine and route the microphone and ground correctly. Seems like Xbox controllers decided to forgo the $0.35 chip that does this and just stick to one static pinout. If you've ever been to China at an Apple store, you'll notice that the insulator plastic between the contacts on the 3.5mm EarPods headphone plug is black, and in the rest of the world it's white. That's because Apple sells two different SKUs with different pinouts because in China most headphones jacks are wired that way without the headphone jack switcheroo.\
 Now, onto the second part: the actual signaling. Both "standards" use the mic pin to convey button events. Android has one standard, which uses resistors to determine which button is pressed. Nice and simple, but when you press and release a button you get audible pops in the microphone line. Apple has a different way which (pointed out by some great fellows here) uses ultrasonic frequency-shifted tones over the mic signal. Of course the Apple method is more expensive to make and requires the appropriate receive circuitry to decode the tones. However, the Apple method doesn't interfere with any audio because you're not abruptly changing the voltage on the mic line.\
 from here\
-\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 \outl0\strokewidth0 \strokec2 {{\NeXTGraphic TRRS-Wiring-Diagram-300x224.png \width6000 \height4480 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}
+\f0 \outl0\strokewidth0 \
+\pard\pardeftab720\sa240\partightenfactor0
+\cf0 \
 \pard\pardeftab720\partightenfactor0
 
 \f1 \cf0 \outl0\strokewidth0 \strokec2 I'm trying to add SWC to the FT HU in my BRZ. \
