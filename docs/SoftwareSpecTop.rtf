@@ -19,6 +19,10 @@ Various stream processing code objects pick off various streamed items (events/s
 \
 The real time loop and the timer interrupt service routine can be considered to be two independent tasks where one task can preempt the other. This requires special considerations when communicating between tasks especially when memory/data is shared between tasks. In most software, sharing information between tasks makes complicated use of semaphores and/or suspending interrupts, etc.  In this application/instance this is all handled, perfectly (no logical holes, no interrupt suspension, inherently stable, simple), by routines in the Signals Library. The Signals Library implements the streams, mentioned above, (just special queues in this case) that allow one task to transmit signals/items/events/data records to another task without issue, regardless of who might preempt who. See the Signal Library documentation for how these special queues work but you just need to know that one task can place items in a special queue and other tasks are notified and can receive it, these queues (streams) are one way, only one task can transmit but many (there is a limit) tasks may receive, the depth of these queues must be set and the tasks using the queues collaborate to avoid overflow (queues have a fixed depth). The queue depths must be exact powers of 2 (1, 2, 4, 8 etc).\
 \
+All the active wired remote analog input (A/D) channels are read and streamed to the main task (real time loop) every timer tick (timer interrupt), in pretty much raw (maybe some scaling etc) form. An object in the main task picks off all these analog read events and replaces them with button up and button down events. Another object picks off these button up/down events and adds button click events. If the application is passing through the input wired remote to the output wired remote then a button click event is streamed to (queued for) the timer interrupt handler (input/output task) where it is replace by button down then button up events which actually output analog values to the wired remote output.\
+\
+\
+\
 \
 \
 \
