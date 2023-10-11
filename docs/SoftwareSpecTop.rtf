@@ -11,9 +11,17 @@ Software Spec. Top\
 \
 Basic operation is a constant frequency timer interrupt (probably about 1 kHz/1 millisecond) and a real time loop (which occurs as often as it can and has variable frequency/period). The average period of the real time loop needs to be less than half the interrupt timer period. The depth of the queues described below determines just how \'93long term\'94 that average can be.\
 \
-During the timer interrupt service routine, all inputs are read (polled) and queued (streamed) to the real time loop (task) and all queued (streamed from the real time loop) outputs are written, if they can be (not blocked). Each item (event/signal) streamed is given an integer time stamp which is the running count of timer interrupts (which rolls over periodically. No more often than every 32 seconds).\
+During the timer interrupt service routine, all inputs are read (polled) and queued (streamed) to the real time loop (main task) and all queued (streamed from the real time loop) outputs are written, if they can be (not blocked/backed up). Each item (event/signal) streamed is given an integer time stamp which is the running count of timer interrupts (which rolls over periodically. No more often than every 32 seconds).\
 \
-The inputs include the encoder, various switches, and analog to digital channels (wired remote inputs). It does not include serial ports, USB, or other things that the real time loop deals with directly. The outputs include the wired remote outputs (pwm analog channels) and LEDs. When the output items are actually written (by the timer interrupt), they are given a time stamp (current timer interrupt count) and added to the input stream (sent back to real time loop). Various stream processing\
+The inputs include the encoder, various switches, and analog to digital channels (wired remote inputs). It does not include serial ports, USB, or other things that the real time loop deals with directly. The outputs include the wired remote outputs (PWM analog channels) and LEDs. When the output items are actually written (by the timer interrupt), they are given a time stamp (current timer interrupt count) and then added back to the input stream (sent back to real time loop). Thus the inputs stream (to the real time loop) contains all the events/signals (Both input and output) with time stamps of when they actually happened.\
+\
+Various stream processing code objects pick off various streamed items (events/signals) and replaces them in the stream (with same time stamp as original item) and/or adds additional items. For example, Button Up and Button Down items are left in the stream but may cause Click, Double Click and Button Hold items to be added (with same timestamp but behind in stream of items which cause them). The raw encoder A,B channels are read every timer tick and generate an input stream item but, if there is no change in the A,B channels, the item is discarded. If there is a change then the item is replaced with an item that indicates forward, reverse, or error derived from the encoder read item.\
+\
+The real time loop and the timer interrupt service routine can be considered to be two independent tasks where one task can preempt the other. This requires special considerations when communicating between tasks especially when memory is shared between tasks. In this instance this is all \
+\
+\
+\
+\
 \
 \
 \
