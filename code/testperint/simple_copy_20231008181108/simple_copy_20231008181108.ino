@@ -33,8 +33,9 @@ void ledOnOff(void) {
 // setup
 //=========================================
 void setup(void) {
-  Serial.begin(115200); delay(1000);
-
+  Serial.begin(115200);
+  Serial.write("starting test2\n");
+  delay(1000);
   pinMode(LED_PIN, OUTPUT);
   pinMode(LED_RED_PIN, OUTPUT);
   digitalWrite(LED_PIN, 1);
@@ -43,9 +44,9 @@ void setup(void) {
   digitalWrite(LED_BLUE_PIN, 1);
   count = 0;
   
-  tt.begin(ledOnOff, 1000);
+  tt.begin(ledOnOff, 500);  // pass ISR and period in microseconds
+  Serial.write("setup complete, period \n");
 
-  Serial.write("starting test2\n");
 }
 
 //=========================================
