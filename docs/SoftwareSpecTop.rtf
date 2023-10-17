@@ -1,7 +1,7 @@
 {\rtf1\ansi\ansicpg1252\cocoartf2706
 \cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red69\green60\blue204;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c34510\c33725\c83922;}
 \margl1440\margr1440\vieww12000\viewh14080\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -33,14 +33,45 @@ General Value  16 bits unsigned  typically left justified if A/D, D/A value, or 
 \
 Item Types\
 ButtonUp, ButtonDown, ButtonClick, ButtonDouble, ButtonHold\
+DigitalIn\
+DigitalOut\
+DigitalOutFeedback\
+EncoderRawRead\
 EncoderUpdate\
 AnalogRead\
 AnalogWrite\
-ParameterSet\
+AnalogWriteFeedback\
 ParameterGet\
+ParameterSet\
+ParameterSetFeedBack\
 TimeUpdate\
 \
-\
+Tentative Nano pins\
+\pard\pardeftab720\partightenfactor0
+\cf2 \expnd0\expndtw0\kerning0
+Two W/R inputs is 2 analog Voltage inputs, 2 analog/pwm calibrated current outputs.\
+Two W/R outputs is two analog/pwm voltage outputs, 2 analog current inputs.\
+Two analog in for Vbat, Vref\
+Six switch/button/encoder up to 2 encoders (2 each) 2 switches, 1 encoder four switches\
+Three PWM LED drivers\
+One digital out for pulling in reference resistor or other circuit control\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \expnd0\expndtw0\kerning0
+4 anlog Inputs W/R interface\
+\pard\pardeftab720\partightenfactor0
+\cf2 2 analog input \cf2 Vbat, Vref\cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 4 analog outputs (pwm with filter) \cf2 W/R interface\
+\cf2 3 pwm outputs for LEDs\
+2 digital encoder inputs\cf2 \
+4 digital switch in or another encoder or test\
+1 digital output for circuit control\
+20 total so doesn\'92t account for conflicts\cf2 \
+\cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
 \
 \
 \
