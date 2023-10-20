@@ -44,17 +44,44 @@ AnalogWriteFeedback\
 ParameterGet\
 ParameterSet\
 ParameterSetFeedBack\
-TimeUpdate\
+TimeUpdate\cf2 \expnd0\expndtw0\kerning0
 \
-Tentative Nano pins\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\
+We need a +6ish supply to support/encompass external connections (which use +5v).\
+This should be made from the 3.3V MCU supply to support operation on USB power or 12V without change\
+An Analog Input is allocated to monitor V+6.\
+If V+6 can be made precise enough to be used as a precise reference then great.\
+If not then make a precise reference that is powered from V+6 and we\'92ll monitor that instead and assume it tells us that V+6 is OK (I would like to keep 2 spare analog in channels)\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+Nano Pin Allocation\cf2 \expnd0\expndtw0\kerning0
+\
+\cf0 \kerning1\expnd0\expndtw0 \
+Pretty sure we need these pin functions\cf2 \expnd0\expndtw0\kerning0
+:\cf0 \kerning1\expnd0\expndtw0 \
 \pard\pardeftab720\partightenfactor0
 \cf2 \expnd0\expndtw0\kerning0
-Two W/R inputs is 2 analog Voltage inputs, 2 analog/pwm calibrated current outputs.\
-Two W/R outputs is two analog/pwm voltage outputs, 2 analog current inputs.\
-Two analog in for Vbat, Vref\
+Two\cf0 \kerning1\expnd0\expndtw0  Chan\cf2 \expnd0\expndtw0\kerning0
+ W/R input is 2 analog Voltage inputs, 2 analog/pwm calibrated current outputs.\
+Two \cf0 \kerning1\expnd0\expndtw0 Chan \cf2 \expnd0\expndtw0\kerning0
+W/R output is two analog/pwm voltage outputs, 2 analog current inputs.\
+Two analog in for Vbat, Vext (+6ish) If Analog not precise the \
 Six switch/button/encoder up to 2 encoders (2 each) 2 switches, 1 encoder four switches\
 Three PWM LED drivers\
-One digital out for pulling in reference resistor or other circuit control (calibration mode)\
+One digital out for pulling in reference resistor or other circuit control (calibration mode, I\'92m thinking grounds one side of each of two precision resistors that each connect to one or other W/R input channel).\
+\
+\
+This will leave 3 pins using the scheme below\
+If possible I would like these pins to be able to do one of the following options:\
+Standard I2C + 1 PWM or 1 digital out\
+SPI\
+At least 2 PWM and 1 Digital I/O\
+\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \kerning1\expnd0\expndtw0 \
 \pard\pardeftab720\partightenfactor0
@@ -67,7 +94,7 @@ log Inputs connects to four 2to1 multiplexers, \
 1 digital output to select analog input mux bank\
 1 digital output for circuit control\
 3 digital outputs to select 8 to 1 digital input mux\
-    2 x 2 encoders 4 switch/buttons \
+    2 x 2 encoders 2 switch/buttons or 1 X 2 encoder and 4 buttons. In any case 2 spare.\
 1 digital input from 8 to 1 digital input mux\
 3 digital I/O for I2C or SPI, use standard I2C pins (A4 and A5) and last pin to accommodate SPI if possible \
 20 total\cf0 \kerning1\expnd0\expndtw0 \
