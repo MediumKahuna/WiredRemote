@@ -67,13 +67,13 @@ Pretty sure we need these pin functions\cf2 \expnd0\expndtw0\kerning0
 \pard\pardeftab720\partightenfactor0
 \cf2 \expnd0\expndtw0\kerning0
 Two\cf0 \kerning1\expnd0\expndtw0  Chan\cf2 \expnd0\expndtw0\kerning0
- W/R input is 2 analog Voltage inputs, 2 analog/pwm calibrated current outputs.\
+ W/R input is 2 analog Voltage inputs, 1 bit choice of pull-up resistance value.\
 Two \cf0 \kerning1\expnd0\expndtw0 Chan \cf2 \expnd0\expndtw0\kerning0
-W/R output is two analog/pwm voltage outputs, 2 analog current inputs.\
+W/R output is two analog/pwm voltage outputs, 2 analog voltage inputs. \
+   Choice of voltage, or 2 pull down resistance values. (2 bit choice)\
 Two analog in for Vbat, Vext (+6ish) If Analog not precise the \
 Six switch/button/encoder up to 2 encoders (2 each) 2 switches, 1 encoder four switches\
 Three PWM LED drivers\
-One digital out for pulling in reference resistor or other circuit control (calibration mode, I\'92m thinking grounds one side of each of two precision resistors that each connect to one or other W/R input channel).\
 \
 \
 This will leave 3 pins using the scheme below\
@@ -87,12 +87,14 @@ At least 2 PWM and 1 Digital I/O\
 \pard\pardeftab720\partightenfactor0
 \cf2 \expnd0\expndtw0\kerning0
 3 pwm outputs for LEDs\
-4 analog outputs (pwm with filter) W/R interface\
+2 analog outputs (pwm with filter) W/R interface\
+2 digital out for dual 4 to 1 mux W/R output select. \
+   Selects between voltage and 3 pull down resistance values for both channels\
 4 an\cf0 \kerning1\expnd0\expndtw0 a\cf2 \expnd0\expndtw0\kerning0
 log Inputs connects to four 2to1 multiplexers, \
      bank 0 connects to 4 W/R analog channels, bank 1 connects to  Vbat and V+6 and 2 spare\
 1 digital output to select analog input mux bank\
-1 digital output for circuit control\
+1 digital output to select W/R input pull up\
 3 digital outputs to select 8 to 1 digital input mux\
     2 x 2 encoders 2 switch/buttons or 1 X 2 encoder and 4 buttons. In any case 2 spare.\
 1 digital input from 8 to 1 digital input mux\
